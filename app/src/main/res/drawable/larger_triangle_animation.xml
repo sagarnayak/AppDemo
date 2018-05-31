@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:drawable="@drawable/triangle_shape_large">
+
+    <target
+        android:name="large_triangle"
+        android:animation="@anim/animate_larger_triangle"/>
+    <target
+        android:name="small_triangle"
+        android:animation="@anim/animate_small_triangle"/>
+
+</animated-vector>
