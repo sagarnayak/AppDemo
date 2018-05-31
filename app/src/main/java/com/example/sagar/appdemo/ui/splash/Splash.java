@@ -41,5 +41,14 @@ public class Splash extends AppCompatActivity {
                         binding.AppcompatImageviewLogo,
                         ViewCompat.getTransitionName(binding.AppcompatImageviewLogo));
         startActivity(intent, options.toBundle());
+        new Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                },
+                1000
+        );
     }
 }

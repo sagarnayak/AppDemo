@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.sagar.appdemo"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -30,4 +30,10 @@ dependencies {
 
     //lottie
     implementation 'com.airbnb.android:lottie:2.5.4'
+
+    //circular progressbar
+    implementation 'com.github.castorflex.smoothprogressbar:library-circular:1.0.0'
+
+    //ticker
+    implementation 'com.robinhood.ticker:ticker:2.0.0'
 }

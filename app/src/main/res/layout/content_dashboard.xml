@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="context"
+            type="com.example.sagar.appdemo.ui.dashboard.Dashboard" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ui.dashboard.Dashboard">
+
+        <com.example.sagar.appdemo.customview.TextViewBold
+            android:id="@+id/textview_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/logo"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:transitionName="app_name_transition"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/_appcompat_imageview_logo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/_appcompat_imageview_logo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="4dp"
+            android:transitionName="logo_transition"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_app_name"
+            app:layout_constraintLeft_toRightOf="@+id/textview_app_name"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textview_app_name"
+            app:srcCompat="@drawable/logo"
+            tools:ignore="UnusedAttribute" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/appcompat_imageview_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_app_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textview_app_name"
+            app:srcCompat="@drawable/back" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/appcompat_imageview_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_app_name"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textview_app_name"
+            app:srcCompat="@drawable/logout" />
+
+        <com.example.sagar.appdemo.customview.TextViewSemiBold
+            android:id="@+id/textview_rs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/Rs"
+            android:textColor="@color/teal_700"
+            android:textSize="40sp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/ticker"
+            app:layout_constraintTop_toBottomOf="@+id/textview_app_name" />
+
+        <com.robinhood.ticker.TickerView
+            android:id="@+id/ticker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/teal_700"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_rs"
+            app:layout_constraintLeft_toRightOf="@+id/textview_rs"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textview_rs"
+            app:ticker_defaultCharacterList="number" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_rs" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
