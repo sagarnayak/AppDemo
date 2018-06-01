@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="context"
-            type="com.example.sagar.appdemo.ui.login.Login" />
+            type="com.example.sagar.appdemo.ui.login.Login"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -26,14 +26,14 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/larger_triangle_animation" />
+            app:srcCompat="@drawable/larger_triangle_animation"/>
 
         <com.example.sagar.appdemo.customview.TextViewBold
             android:id="@+id/textview_app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="54dp"
             android:text="@string/logo"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
@@ -41,7 +41,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/_appcompat_imageview_logo"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/_appcompat_imageview_logo"
@@ -54,7 +54,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textview_app_name"
             app:srcCompat="@drawable/logo"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute"/>
 
         <com.example.sagar.appdemo.customview.EditTextRegular
             android:id="@+id/edittext_user_name"
@@ -76,7 +76,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_app_name"
             app:layout_constraintVertical_bias=".25"
-            app:layout_constraintWidth_percent=".8" />
+            app:layout_constraintWidth_percent=".8"/>
 
         <com.example.sagar.appdemo.customview.EditTextRegular
             android:id="@+id/edittext_password"
@@ -97,7 +97,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edittext_user_name"
-            app:layout_constraintWidth_percent=".8" />
+            app:layout_constraintWidth_percent=".8"/>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_password_hide_show"
@@ -110,7 +110,7 @@
             app:layout_constraintRight_toRightOf="@+id/edittext_password"
             app:layout_constraintTop_toTopOf="@+id/edittext_password"
             app:lottie_colorFilter="@color/colorPrimary"
-            app:lottie_fileName="eye01.json" />
+            app:lottie_fileName="eye01.json"/>
 
         <com.example.sagar.appdemo.customview.Button
             android:id="@+id/button_login"
@@ -126,7 +126,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edittext_password"
-            app:layout_constraintWidth_percent=".8" />
+            app:layout_constraintWidth_percent=".8"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/appcompatimageview_eye"
@@ -140,7 +140,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/appcompatimageview_at"
-            app:srcCompat="@drawable/eye" />
+            app:srcCompat="@drawable/eye"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/appcompatimageview_at"
@@ -154,7 +154,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/appcompatimageview_eye"
             app:layout_constraintRight_toLeftOf="@+id/appcompatimageview_email"
-            app:srcCompat="@drawable/at" />
+            app:srcCompat="@drawable/at"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/appcompatimageview_email"
@@ -168,7 +168,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/appcompatimageview_at"
             app:layout_constraintRight_toLeftOf="@+id/appcompatimageview_location"
-            app:srcCompat="@drawable/mail" />
+            app:srcCompat="@drawable/mail"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/appcompatimageview_location"
@@ -182,6 +182,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/appcompatimageview_email"
             app:layout_constraintRight_toRightOf="parent"
-            app:srcCompat="@drawable/location" />
+            app:srcCompat="@drawable/location"/>
     </android.support.constraint.ConstraintLayout>
 </layout>

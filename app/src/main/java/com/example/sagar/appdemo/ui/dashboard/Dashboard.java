@@ -5,6 +5,9 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
@@ -23,6 +26,7 @@ import com.example.sagar.appdemo.ui.login.Login;
 public class Dashboard extends AppCompatActivity {
 
     private ContentDashboardBinding binding;
+    private boolean shouldFinishActivity = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,7 @@ public class Dashboard extends AppCompatActivity {
                         setupGrid();
                     }
                 },
-                100
+                500
         );
     }
 
@@ -104,12 +108,33 @@ public class Dashboard extends AppCompatActivity {
     }
 
     public void onClickLogout(View v) {
-        startActivity(
-                new Intent(
-                        this,
-                        Login.class
-                )
+        gotoLogin();
+    }
+
+    private void gotoLogin() {
+        Intent intent = new Intent(this, Login.class);
+        Pair<View, String> pairAppName = new Pair<>(
+                (View) binding.textviewAppName,
+                binding.textviewAppName.getTransitionName()
         );
+        Pair<View, String> pairLogo = new Pair<>(
+                (View) binding.AppcompatImageviewLogo,
+                ViewCompat.getTransitionName(binding.AppcompatImageviewLogo)
+        );
+        @SuppressWarnings("unchecked")
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(this,
+                        pairAppName, pairLogo
+                );
+        startActivity(intent, options.toBundle());
+        shouldFinishActivity = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (!shouldFinishActivity)
+            return;
         finish();
     }
 }
