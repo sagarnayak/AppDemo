@@ -20,6 +20,10 @@ import com.example.sagar.appdemo.ui.dashboard.Dashboard;
 import com.example.sagar.appdemo.util.ProgressDialog;
 import com.example.sagar.appdemo.util.UiUtil;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * login activity.
+ */
 public class Login extends AppCompatActivity {
 
     private enum PasswordViewState {
@@ -51,9 +55,15 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_login);
 
+        /*
+        binding initialisation
+         */
         binding = DataBindingUtil.setContentView(this, R.layout.content_login);
         binding.setContext(this);
 
+        /*
+        initialise progress util
+         */
         progressDialog = new ProgressDialog(this);
 
         animateBackground();
@@ -62,6 +72,9 @@ public class Login extends AppCompatActivity {
         setupPasswordEdittextKeyListener();
     }
 
+    /**
+     * animate the background triangular shapes.
+     */
     private void animateBackground() {
         Animatable animatable = (Animatable) binding.appcompatimageviewTriangleOne.getDrawable();
         animatable.start();
@@ -69,6 +82,9 @@ public class Login extends AppCompatActivity {
         binding.appcompatimageviewTriangleOne.animate().alpha(1f).setDuration(2000);
     }
 
+    /**
+     * animate the username, password and login button.
+     */
     private void animateFields() {
         binding.edittextUserName.setY(-40);
         binding.edittextUserName.setAlpha(0f);
@@ -89,10 +105,18 @@ public class Login extends AppCompatActivity {
         );
     }
 
+    /**
+     * set the lottie animation view to the .5 frame. to show the closed state of the password field.
+     */
     private void initialisePasswordShowHideLottieView() {
         binding.lottiePasswordHideShow.setProgress(.5f);
     }
 
+    /**
+     * on click for the password show and hide function.
+     *
+     * @param v view
+     */
     public void onClickPasswordHideShow(View v) {
         switch (passwordViewState) {
             case HIDING:
@@ -106,6 +130,9 @@ public class Login extends AppCompatActivity {
         updatePasswordEye();
     }
 
+    /**
+     * update the text in the password field according to the show / hide selected by the user.
+     */
     private void updateTextOnPasswordView() {
         switch (passwordViewState) {
             case HIDING:
@@ -123,6 +150,9 @@ public class Login extends AppCompatActivity {
         );
     }
 
+    /**
+     * change the lottie password show / hide view according to selection by user.
+     */
     private void updatePasswordEye() {
         ValueAnimator animator = null;
         switch (passwordViewState) {
@@ -146,6 +176,11 @@ public class Login extends AppCompatActivity {
         animator.start();
     }
 
+    /**
+     * onClick for login button.
+     *
+     * @param v view
+     */
     public void onClickLogin(View v) {
         UiUtil.hideSoftKeyboard(this);
         progressDialog.show();
@@ -161,6 +196,9 @@ public class Login extends AppCompatActivity {
         );
     }
 
+    /**
+     * setup the done button listener for edittext password
+     */
     private void setupPasswordEdittextKeyListener() {
         binding.edittextPassword.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -175,6 +213,9 @@ public class Login extends AppCompatActivity {
 
     }
 
+    /**
+     * start dashboard activity with shared element transition.
+     */
     private void gotoDashboard() {
         Intent intent = new Intent(this, Dashboard.class);
         Pair<View, String> pairAppName = new Pair<>(
@@ -194,6 +235,10 @@ public class Login extends AppCompatActivity {
         shouldFinishActivity = true;
     }
 
+    /**
+     * stop the activity if the next activity is started already.
+     * this is distinguished by the shouldFinishActivity boolean val.
+     */
     @Override
     protected void onStop() {
         super.onStop();

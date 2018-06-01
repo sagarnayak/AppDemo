@@ -1,5 +1,9 @@
 package com.example.sagar.appdemo.ui.dashboard.pojo;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * POJO for dashboard grid.
+ */
 @SuppressWarnings("unused")
 public class GridItem {
     private int icon;

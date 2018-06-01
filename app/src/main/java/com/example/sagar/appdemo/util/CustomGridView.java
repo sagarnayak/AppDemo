@@ -8,6 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.GridLayoutAnimationController;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * custom grid view extending the recyclerview for applying the loading animation.
+ */
 public class CustomGridView extends RecyclerView {
 
     /**

@@ -5,6 +5,9 @@ import com.example.sagar.appdemo.ui.dashboard.pojo.GridItem;
 
 import java.util.ArrayList;
 
+/**
+ * class to generate the data for the grid view in dashboard.
+ */
 public class GridMaster {
     public static ArrayList<GridItem> getGridItems() {
         ArrayList<GridItem> gridItems = new ArrayList<>();

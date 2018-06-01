@@ -5,6 +5,11 @@ import android.graphics.Typeface;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * custom edittext with OpenSans regular font.
+ */
+@SuppressWarnings("unused")
 public class EditTextRegular extends AppCompatEditText {
 
     public EditTextRegular(Context context) {

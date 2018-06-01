@@ -5,6 +5,10 @@ import android.content.Context;
 
 import com.example.sagar.appdemo.R;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * custom progress dialog
+ */
 @SuppressWarnings("unused")
 public class ProgressDialog {
 

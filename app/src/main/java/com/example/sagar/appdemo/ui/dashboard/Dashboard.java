@@ -23,6 +23,10 @@ import com.example.sagar.appdemo.ui.dashboard.adapter.GridSpacingItemDecoration;
 import com.example.sagar.appdemo.ui.dashboard.master.GridMaster;
 import com.example.sagar.appdemo.ui.login.Login;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * dashboard activity.
+ */
 public class Dashboard extends AppCompatActivity {
 
     private ContentDashboardBinding binding;
@@ -33,6 +37,9 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_dashboard);
 
+        /*
+        setup data binding
+         */
         binding = DataBindingUtil.setContentView(this, R.layout.content_dashboard);
         binding.setContext(this);
 
@@ -49,6 +56,9 @@ public class Dashboard extends AppCompatActivity {
         );
     }
 
+    /**
+     * animate the image buttons on the actionbar place.
+     */
     private void animateInitialView() {
         binding.appcompatImageviewBack.setX(-100f);
         binding.appcompatImageviewBack.animate().translationX(0f).setDuration(500)
@@ -65,6 +75,9 @@ public class Dashboard extends AppCompatActivity {
                 );
     }
 
+    /**
+     * setup ticker and start the handler.
+     */
     private void setupTickerAndShow() {
         binding.ticker.setAnimationInterpolator(
                 new AccelerateDecelerateInterpolator()
@@ -88,6 +101,9 @@ public class Dashboard extends AppCompatActivity {
         );
     }
 
+    /**
+     * setup grid view and set adapter to recyclerview.
+     */
     private void setupGrid() {
         int spanCount = 3;
         int spacing = 20;
@@ -107,10 +123,18 @@ public class Dashboard extends AppCompatActivity {
         binding.recyclerview.setLayoutAnimation(animation);
     }
 
+    /**
+     * on click for logout button.
+     *
+     * @param v view
+     */
     public void onClickLogout(View v) {
         gotoLogin();
     }
 
+    /**
+     * start login screen with shared element transition.
+     */
     private void gotoLogin() {
         Intent intent = new Intent(this, Login.class);
         Pair<View, String> pairAppName = new Pair<>(
@@ -130,6 +154,10 @@ public class Dashboard extends AppCompatActivity {
         shouldFinishActivity = true;
     }
 
+    /**
+     * stop the activity if the next activity is started already.
+     * this is distinguished by the shouldFinishActivity boolean val.
+     */
     @Override
     protected void onStop() {
         super.onStop();

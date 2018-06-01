@@ -10,6 +10,10 @@ import com.example.sagar.appdemo.ui.dashboard.pojo.GridItem;
 
 import java.util.ArrayList;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * Grid view adapter for dashboard
+ */
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     private ArrayList<GridItem> gridItems;
 

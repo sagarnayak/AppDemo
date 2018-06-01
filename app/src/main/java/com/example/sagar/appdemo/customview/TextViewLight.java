@@ -5,6 +5,11 @@ import android.graphics.Typeface;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * custom textview with OpenSans light font.
+ */
+@SuppressWarnings("unused")
 public class TextViewLight extends AppCompatTextView {
     public TextViewLight(Context context) {
         super(context);

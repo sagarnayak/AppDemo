@@ -4,6 +4,10 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * Grid spacing item decoration for equal grid spacing in dashboard
+ */
 public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     private int spanCount;
     private int spacing;

@@ -5,6 +5,11 @@ import android.graphics.Typeface;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 31 MAY 2018.
+ * custom textview with OpenSans regular font.
+ */
+@SuppressWarnings("unused")
 public class TextViewRegular extends AppCompatTextView {
     public TextViewRegular(Context context) {
         super(context);
@@ -21,11 +26,12 @@ public class TextViewRegular extends AppCompatTextView {
         setUpFont();
     }
 
-    private void setUpFont(){
+    private void setUpFont() {
         this.setTypeface(
                 Typeface.createFromAsset(
                         getContext().getAssets(),
                         "Open_Sans/OpenSans-Regular.ttf"
                 )
-        );}
+        );
+    }
 }
