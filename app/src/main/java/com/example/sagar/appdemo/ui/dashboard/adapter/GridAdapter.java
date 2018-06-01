@@ -3,35 +3,57 @@ package com.example.sagar.appdemo.ui.dashboard.adapter;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.sagar.appdemo.R;
+import com.example.sagar.appdemo.databinding.DashboardGridItemBinding;
+import com.example.sagar.appdemo.ui.dashboard.pojo.GridItem;
 
-public class GridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+import java.util.ArrayList;
+
+public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
+    private ArrayList<GridItem> gridItems;
+
+    public GridAdapter(ArrayList<GridItem> gridItems) {
+        this.gridItems = gridItems;
+    }
+
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public GridAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(
-                        R.layout.dashboard_grid_item,parent,false
+                DashboardGridItemBinding.inflate(
+                        LayoutInflater.from(parent.getContext()),
+                        parent,
+                        false
                 )
         );
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.bind(gridItems.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 9;
+        return gridItems.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
-        public ViewHolder(View itemView) {
-            super(itemView);
+    class ViewHolder extends RecyclerView.ViewHolder {
+        private DashboardGridItemBinding binding;
+
+        ViewHolder(DashboardGridItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+
+        void bind(GridItem gridItem) {
+            binding.appcompatimageviewIcon.setImageResource(
+                    gridItem.getIcon()
+            );
+            binding.textviewLabel.setText(
+                    gridItem.getLabel()
+            );
         }
     }
 }

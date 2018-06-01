@@ -1,22 +1,28 @@
 package com.example.sagar.appdemo.ui.dashboard;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.view.animation.OvershootInterpolator;
 
 import com.example.sagar.appdemo.R;
 import com.example.sagar.appdemo.databinding.ContentDashboardBinding;
 import com.example.sagar.appdemo.ui.dashboard.adapter.GridAdapter;
+import com.example.sagar.appdemo.ui.dashboard.adapter.GridSpacingItemDecoration;
+import com.example.sagar.appdemo.ui.dashboard.master.GridMaster;
+import com.example.sagar.appdemo.ui.login.Login;
 
 public class Dashboard extends AppCompatActivity {
 
     private ContentDashboardBinding binding;
-    private int initialValue = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +34,15 @@ public class Dashboard extends AppCompatActivity {
 
         setupTickerAndShow();
         animateInitialView();
-        setupGrid();
+        new Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        setupGrid();
+                    }
+                },
+                100
+        );
     }
 
     private void animateInitialView() {
@@ -71,11 +85,31 @@ public class Dashboard extends AppCompatActivity {
     }
 
     private void setupGrid() {
+        int spanCount = 3;
+        int spacing = 20;
+        boolean includeEdge = true;
         binding.recyclerview.setLayoutManager(
-                new GridLayoutManager(this, 3)
+                new GridLayoutManager(this, spanCount)
         );
         binding.recyclerview.setAdapter(
-                new GridAdapter()
+                new GridAdapter(
+                        GridMaster.getGridItems()
+                )
         );
+        //noinspection ConstantConditions
+        binding.recyclerview.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+        int resId = R.anim.recyclerview_animation;
+        LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(this, resId);
+        binding.recyclerview.setLayoutAnimation(animation);
+    }
+
+    public void onClickLogout(View v) {
+        startActivity(
+                new Intent(
+                        this,
+                        Login.class
+                )
+        );
+        finish();
     }
 }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="context"
-            type="com.example.sagar.appdemo.ui.dashboard.Dashboard" />
+            type="com.example.sagar.appdemo.ui.dashboard.Dashboard"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -30,7 +30,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/_appcompat_imageview_logo"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/_appcompat_imageview_logo"
@@ -43,7 +43,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textview_app_name"
             app:srcCompat="@drawable/logo"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/appcompat_imageview_back"
@@ -57,7 +57,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/textview_app_name"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@id/textview_app_name"
-            app:srcCompat="@drawable/back" />
+            app:srcCompat="@drawable/back"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/appcompat_imageview_logout"
@@ -67,11 +67,12 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
+            android:onClick="@{context::onClickLogout}"
             android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/textview_app_name"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@id/textview_app_name"
-            app:srcCompat="@drawable/logout" />
+            app:srcCompat="@drawable/logout"/>
 
         <com.example.sagar.appdemo.customview.TextViewSemiBold
             android:id="@+id/textview_rs"
@@ -85,7 +86,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/ticker"
-            app:layout_constraintTop_toBottomOf="@+id/textview_app_name" />
+            app:layout_constraintTop_toBottomOf="@+id/textview_app_name"/>
 
         <com.robinhood.ticker.TickerView
             android:id="@+id/ticker"
@@ -98,17 +99,29 @@
             app:layout_constraintLeft_toRightOf="@+id/textview_rs"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textview_rs"
-            app:ticker_defaultCharacterList="number" />
+            app:ticker_defaultCharacterList="number"/>
 
-        <android.support.v7.widget.RecyclerView
+        <com.example.sagar.appdemo.customview.TextViewRegular
+            android:id="@+id/textview_account_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_balance"
+            android:textColor="@color/teal_700"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_rs"/>
+
+        <com.example.sagar.appdemo.util.CustomGridView
             android:id="@+id/recyclerview"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            android:overScrollMode="never"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_rs" />
+            app:layout_constraintTop_toBottomOf="@+id/textview_account_balance"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>
